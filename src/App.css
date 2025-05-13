@@ -1,42 +1,106 @@
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+
+	width: 100%;
+	height: 100%;
+
   text-align: center;
+
+	transition: all 0.25s;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.input-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+
+	width: 100%;
+	gap: 1rem;;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.loading-indicator {
+	font-size: var(--font-size-small);
+	color: var(--color-text-muted);
+	font-style: italic
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+main {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+
+	gap: 3rem;
+	margin: 0 2rem;
 }
 
-.card {
-  padding: 2em;
+input {
+	width: auto;
+  min-width: 2ch; /* Minimum width to start with */
+
+	font-size: min(var(--font-size-medium), 2.25vw	);
 }
 
-.read-the-docs {
-  color: #888;
+.songs {
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+	max-width: 800px;
+	width: 100%;
+
+	text-align: left;
+}
+
+.song {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: 0.25rem;
+}
+
+.song-title {
+	font-size: var(--font-size-medium);
+	font-weight: bold;
+}
+
+.song-artists {
+	font-size: var(--font-size-small);
+}
+
+.song-album {
+	font-size: var(--font-size-small);
+	font-style: italic;
+	color: var(--color-text-muted);
+}
+
+section.rating {
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+}
+
+select.rating {
+	appearance: none;
+	padding-bottom: 0.25rem;
+	height: min-content;
+
+	font-size: var(--font-size-medium);
+	font-weight: bold;
+	color: var(--color-text);
+	text-align: center;
+
+	border-bottom: 2px solid var(--color-text-muted);
+}
+select.rating:hover {
+	border-color: var(--color-text);
+	cursor: pointer;
+}
+
+select.rating option {
+	background-color: var(--color-background);
+	color: var(--color-text);
+	font-size: var(--font-size-small);
 }

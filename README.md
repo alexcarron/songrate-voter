@@ -1,54 +1,81 @@
-# React + TypeScript + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Song Downloader and Rating System
 
-Currently, two official plugins are available:
+## Overview
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+This project is a web application that allows users to preview and rate songs from Spotify playlists. The project consists of a local backend server built with Flask and a React frontend. It uses the Spotify API to extract song details and the yt_dlp library to download audio files from YouTube.
 
-## Expanding the ESLint configuration
+## Features
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+* Dynamic input field for pasting Spotify playlist links
+* Loading indicator for downloading songs
+* Download songs from YouTube using the `yt_dlp` library
+* Rate songs from 0 to 11
+* User-friendly interface built with React
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+## Setup
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### Prerequisites
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+* Node.js (14.x or higher)
+* Python (3.8.x or higher)
+* Flask (2.x or higher)
+* yt_dlp (2021.x or higher)
+* Spotify API credentials (Client ID and Client Secret)
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+### Backend Setup
+
+* Clone the repository: `git clone https://github.com/alexcarron/songrate-voter.git`
+* Install dependencies:
+  * Install frontend dependencies:
+    * Navigate to the repository directory: `cd songrate-voter`
+    * Install dependencies: `npm install`
+  * Install backend dependencies:
+    * Navigate to the backend directory: `cd server`
+    * Install dependencies: `pip install -r requirements.txt`
+
+* Create a `.env` file with your Spotify API credentials:
+  * `VITE_CLIENT_ID="your-client-id"`
+  * `VITE_CLIENT_SECRET="your-client-secret"`
+
+* Start the development server:
+  * `npm run start` (for frontend)
+  * `python server/index.py` (for backend)
+    * Altneratively, if you prefer using Flask's built-in server, use `flask run --app server/index.py`
+
+## Usage
+
+### 1. Open webpage
+
+Open the URL shown in the terminal after running the Vite server.
+
+![Vite Console Screenshot](./screenshots/vite-console-screenshot.png)
+
+You will be greeted with an empty input field
+
+![React App Empty Input Screenshot](./screenshots/paste-link-screenshot.png)
+
+### 2. Paste a link
+
+Paste a Spotify playlist link into the input field
+
+![Pasted Link Screenshot](./screenshots/pasted-link-screenshot.png)
+
+### 3. Wait
+
+Wait for the songs to finish downloading once the loading indicator vanishes
+
+![Songs Finished Downloading Screenshot](./screenshots/loaded-songs-screenshot.png)
+
+### 4. Listen & Rate!
+
+Listen to the displayed songs and select your ratings for them
+
+![Listening To and Rating a Song Screenshot](./screenshots/listening-to-and-rating-song-screenshot.png)
+
+## Technical Details
+
+* **Frontend**: React, TypeScript, CSS
+* **Backend**: Flask, Python, yt_dlp
+* **Spotify API**: Used to extract song details from playlists
+* **Vite**: Used as a development server and build tool

@@ -1,0 +1,70 @@
+*, *::before, *::after {
+	/* Reset entire box model */
+	margin: 0;
+	padding: 0;
+	border: 0;
+	vertical-align: baseline;
+	box-sizing: border-box;
+
+	/* Remove default backgrounds */
+	background: none;
+
+	/* Ensure font family is same as rest of the content */
+	font-family: inherit;
+	font-size: inherit;
+
+				/* Ensure color is the same as the rest of the content */
+	color: inherit;
+}
+
+
+/* Override display for semantic elements for all browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+
+/* Override default line height in all browsers */
+body {
+	line-height: 1;
+}
+
+/* Remove list styles */
+ol, ul {
+	list-style: none;
+}
+
+/* Remove extra content and quotes from quotations */
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+
+/* Compact tables so there's no space between borders by default */
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/* Remove default color and underline style from links */
+a {
+	text-decoration: inherit;
+	color: inherit;
+}
+
+/* Remove default background and border from buttons */
+button {
+	background-color: inherit;
+	border: inherit;
+}
+
+/* Ensure media elements scale responsively as a block element maintaining its aspect ratio */
+img, picture, video, canvas, svg {
+	display: block;
+	max-width: 100%;
+	height: auto;
+}

@@ -3,6 +3,7 @@ const CLIENT_ID = import.meta.env.VITE_CLIENT_ID;
 const CLIENT_SECRET = import.meta.env.VITE_CLIENT_SECRET;
 
 interface SongDetails {
+	id: string;
   songName: string;
   artists: string[];
   album: string;
@@ -10,6 +11,7 @@ interface SongDetails {
 
 interface SpotifyTrack {
   track: {
+		id: string;
     name: string;
     artists: { name: string }[];
     album: {
@@ -78,7 +80,8 @@ function extractSongDetails(tracks: SpotifyTrack[]): SongDetails[] {
     const songName = track.track.name;
     const artists = track.track.artists.map((artist: {name: string}) => artist.name);
     const album = track.track.album.name;
-    return { songName, artists, album };
+		const id = track.track.id;
+    return { id, songName, artists, album };
   });
 }
 

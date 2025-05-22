@@ -34,7 +34,7 @@ main {
 	align-items: center;
 
 	gap: 3rem;
-	margin: 0 2rem;
+	margin: 5rem 2rem;
 }
 
 input {
@@ -76,10 +76,16 @@ input {
 	color: var(--color-text-muted);
 }
 
+section.leftSection {
+	display: flex;
+	gap: 1rem;
+}
+
 section.rating {
 	display: flex;
 	align-items: center;
-	gap: 0.5rem;
+	justify-content: center;
+	gap: 1rem;
 }
 
 select.rating {

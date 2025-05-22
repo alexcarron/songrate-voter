@@ -87,3 +87,33 @@ input.correct {
 	color: var(--color-primary);
 	border-color: var(--color-primary);
 }
+
+input[type="checkbox"] {
+	all: unset;
+	cursor: pointer;
+
+	width: 1.2em;
+	height: 1.2em;
+	aspect-ratio: 1;
+
+	background-color: var(--color-background);
+	border: 2px solid var(--color-text-muted);
+	transition: all 0.25s;
+}
+
+input[type="checkbox"]:hover {
+	border-color: var(--color-text);
+}
+
+input[type="checkbox"]:checked {
+  background-color: var(--color-primary);
+}
+
+iframe, div.audio {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	border-radius: 16px;
+	height: 80px;
+}

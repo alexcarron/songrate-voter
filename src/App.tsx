@@ -2,13 +2,8 @@ import { useState } from 'react';
 import './App.css'
 import { downloadSong } from './services/song-downloader';
 import { getIDFromSpotifyPlaylistURL, getSongDetailsFromPlaylistURL } from './services/spotify-playlist-extractor';
-
-interface Song {
-	songName: string;
-	artists: string[];
-	album: string;
-	audioURL: string;
-}
+import type Song from './Song';
+import SongComponent from './SongComponent';
 
 function App() {
 	const [songs, setSongs] = useState<Song[]>([]);
@@ -62,6 +57,7 @@ function App() {
 									setSongs(prevSongs =>
 										[...prevSongs,
 											{
+												id: songDetail.id,
 												songName: songDetail.songName,
 												artists: songDetail.artists,
 												album: songDetail.album,
@@ -87,30 +83,10 @@ function App() {
 			</div>
 			<div className="songs">
 				{songs.map((song, index) => (
-					<article key={index} className="song">
-						<header>
-							<h2 className="song-title">{song.songName}</h2>
-							<p className="song-artists">{song.artists.join(', ')}</p>
-							<p className="song-album">{song.album}</p>
-						</header>
-						<section className="rating">
-							<select name="rating" className="rating">
-								<option value="1">0</option>
-								<option value="1">1</option>
-								<option value="2">2</option>
-								<option value="3">3</option>
-								<option value="4">4</option>
-								<option value="5">5</option>
-								<option value="6">6</option>
-								<option value="7">7</option>
-								<option value="8">8</option>
-								<option value="9">9</option>
-								<option value="10">10</option>
-								<option value="10">11</option>
-							</select>
-							<audio className="song-audio" controls src={song.audioURL}></audio>
-						</section>
-					</article>
+					<SongComponent
+						key={index}
+						song={song}
+					/>
 				))}
 			</div>
     </main>

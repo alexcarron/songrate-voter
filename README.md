@@ -23,25 +23,11 @@ This project is a web application that allows users to preview and rate songs fr
 * yt_dlp (2021.x or higher)
 * Spotify API credentials (Client ID and Client Secret)
 
-### Backend Setup
+### Start App
 
 * Clone the repository: `git clone https://github.com/alexcarron/songrate-voter.git`
-* Install dependencies:
-  * Install frontend dependencies:
-    * Navigate to the repository directory: `cd songrate-voter`
-    * Install dependencies: `npm install`
-  * Install backend dependencies:
-    * Navigate to the backend directory: `cd server`
-    * Install dependencies: `pip install -r requirements.txt`
-
-* Create a `.env` file with your Spotify API credentials:
-  * `VITE_CLIENT_ID="your-client-id"`
-  * `VITE_CLIENT_SECRET="your-client-secret"`
-
-* Start the development server:
-  * `npm run start` (for frontend)
-  * `python server/index.py` (for backend)
-    * Altneratively, if you prefer using Flask's built-in server, use `flask run --app server/index.py`
+* Navigate to the repository directory `cd songrate-voter`
+* Run the script to start the app `./start-app.sh`
 
 ## Usage
 

@@ -3,7 +3,7 @@
 
 ## Overview
 
-This project is a web application that allows users to preview and rate songs from Spotify playlists. The project consists of a local backend server built with Flask and a React frontend. It uses the Spotify API to extract song details and the yt_dlp library to download audio files from YouTube.
+This project is a proof of concept web application that allows users to preview and rate songs from a Spotify playlist all in one place for convenience. The project consists of a local backend server built with Flask and a React frontend. It uses the Spotify API to extract song details and the yt_dlp library to download audio files from YouTube.
 
 ## Features
 
